@@ -16,9 +16,9 @@ public class LoginTest {
 
     @Test
     public void myloginTest() {
-        driver.get("https://http://localhost/litecart/admin/");
-        driver.findElement(By.name("email")).sendKeys("test@mail.com");
-        driver.findElement(By.name("password")).sendKeys("qwerty");
+        driver.get("http://localhost/litecart/admin/");
+        driver.findElement(By.name("username")).sendKeys("admin");
+        driver.findElement(By.name("password")).sendKeys("admin");
         driver.findElement(By.name("login")).click();
     }
 
