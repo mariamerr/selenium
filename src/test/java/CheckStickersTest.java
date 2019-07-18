@@ -1,7 +1,11 @@
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class CheckStickersTest extends TestBase {
 
@@ -12,9 +16,10 @@ public class CheckStickersTest extends TestBase {
 
     @Test
     public void stickerIsExist() {
-        int ducksCount = driver.findElements(By.cssSelector("ul.products > li")).size();
-        for (int i = 1; i <= ducksCount; i++) {
-            driver.findElement(By.cssSelector("div.sticker"));
+        List<WebElement> ducks = driver.findElements(By.cssSelector("ul.products > li"));
+        for (WebElement duck : ducks) {
+            int sickerCount = duck.findElements(By.cssSelector("div.sticker")).size();
+            Assert.assertEquals(1, sickerCount);
         }
     }
 }
