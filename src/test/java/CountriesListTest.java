@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-public class CountriesList extends TestBase {
+public class CountriesListTest extends TestBase {
 
     @Before
     public void login() throws InterruptedException {
