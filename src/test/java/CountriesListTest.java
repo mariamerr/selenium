@@ -50,4 +50,22 @@ public class CountriesListTest extends TestBase {
         }
     }
 
+    @Test
+    public void checkZones() {
+        driver.get("http://localhost/litecart/admin/?app=geo_zones&doc=geo_zones");
+        List<WebElement> countries = driver.findElements(By.xpath("//tr[@class='row']/td[3]/a"));
+        int listSize = countries.size();
+        for (int i = 0; i < listSize; i++) {
+            driver.findElements(By.xpath("//tr[@class='row']/td[3]/a")).get(i).click();
+            List<WebElement> listOfZones = driver.findElements(By.cssSelector("#table-zones td:nth-child(3) option[selected]"));
+            List<String> zones = new ArrayList<>();
+            for (WebElement element : listOfZones) {
+                zones.add(element.getAttribute("textContent"));
+            }
+            List<String> beforeSort = new ArrayList<>(zones);
+            Collections.sort(zones);
+            Assert.assertEquals(zones, beforeSort);
+            driver.get("http://localhost/litecart/admin/?app=geo_zones&doc=geo_zones");
+        }
+    }
 }
