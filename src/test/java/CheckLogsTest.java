@@ -10,12 +10,12 @@ public class CheckLogsTest extends TestBase {
 
     @Before
     public void login() {
-        driver.get("http://litecart.stqa.ru/en/");
+        driver.get("http://localhost/litecart/admin/?app=catalog&doc=catalog&category_id=1");
     }
 
     @Test
     public void checkLogs() {
-        List<WebElement> items = driver.findElements(By.cssSelector("ul.products > li"));
+        List<WebElement> items = driver.findElements(By.cssSelector(""));
         for (WebElement element : items) {
             element.click();
             for (LogEntry l : driver.manage().logs().get("browser").getAll()) {
