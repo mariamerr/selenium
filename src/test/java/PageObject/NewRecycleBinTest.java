@@ -4,7 +4,7 @@ import org.junit.Test;
 
 public class NewRecycleBinTest extends TestBase {
 
-    private Application app;
+    public static Application app;
 
     @Test
     public void recycleBinTest() {
